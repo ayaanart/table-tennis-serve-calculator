@@ -14,7 +14,7 @@ const match = {
         },
     },
     rules: {
-        numberOfPlayers: 4,
+        numberOfPlayers: 4, // Can be only 2 or 4
         winThreshold: 10, // You have to be greater than the threshold to win | if both players reach this, deuce starts
         winByMinimum: 2,
         servesPerPlayerBeforeDeuce: 2,

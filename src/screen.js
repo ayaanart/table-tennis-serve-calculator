@@ -53,10 +53,10 @@ Screens.calculator = {
             const BOTTOM_Y = TOP_LEFT_Y_POS + SPACING;
 
             // Main
-            this.elements.push(new Button(LEFT_X, TOP_Y, BUTTON_SIZE, BUTTON_SIZE, "P1+", 1, ()=> {match.score.team1 += 1;Screens.set("calculator");}));
-            this.elements.push(new Button(RIGHT_X, TOP_Y, BUTTON_SIZE, BUTTON_SIZE, "P2+", 1, ()=> {match.score.team2 += 1;Screens.set("calculator");}));
-            this.elements.push(new Button(LEFT_X, BOTTOM_Y, BUTTON_SIZE, BUTTON_SIZE, "P1-", 1, ()=> {match.score.team1 -= 1;Screens.set("calculator");}));
-            this.elements.push(new Button(RIGHT_X, BOTTOM_Y, BUTTON_SIZE, BUTTON_SIZE, "P2-", 1, ()=> {match.score.team2 -= 1;Screens.set("calculator");}));
+            this.elements.push(new Button(LEFT_X, TOP_Y, BUTTON_SIZE, BUTTON_SIZE, "P1+", 1, ()=> {match.score.team1 += 1;}));
+            this.elements.push(new Button(RIGHT_X, TOP_Y, BUTTON_SIZE, BUTTON_SIZE, "P2+", 1, ()=> {match.score.team2 += 1;}));
+            this.elements.push(new Button(LEFT_X, BOTTOM_Y, BUTTON_SIZE, BUTTON_SIZE, "P1-", 1, ()=> {match.score.team1 -= 1}));
+            this.elements.push(new Button(RIGHT_X, BOTTOM_Y, BUTTON_SIZE, BUTTON_SIZE, "P2-", 1, ()=> {match.score.team2 -= 1}));
 
             // Switch player number button
             const TOP_RIGHT_X_POS = 0.9;
@@ -67,9 +67,9 @@ Screens.calculator = {
             }));
             
         // Text
-            this.elements.push(new Label(calc.whatServe(match), 0.5, 0.2, 0.5, 0.3));
-            this.elements.push(new Label(`Score 1: ${match.score.team1} 
-            Score 2: ${match.score.team2}`, 0.3, 0.7, 0.3, 0.3));
+            this.elements.push(new Label(() => {return calc.whatServe(match)}, 0.5, 0.2, 0.5, 0.3));
+            this.elements.push(new Label(() => {return `Score 1: ${match.score.team1}\nScore 2: ${match.score.team2}`}, 
+                0.3, 0.7, 0.3, 0.3));
     },
 
     tick() {
