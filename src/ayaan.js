@@ -41,8 +41,16 @@ const Ayaan = {
                 y -= h * 0.5;
             }
             else if (mode === "CORNERS") {
-                w = Math.abs(x-w);
-                h = Math.abs(y-h);    
+                // Only update after finishing to calculate
+                topLeftX = Math.min(x, w);
+                topLeftY = Math.min(y, h);
+                width = Math.abs(x-w);
+                height = Math.abs(y-h); 
+
+                x = topLeftX;
+                y = topLeftY;
+                w = width;
+                h = height;
             }
 
             return pX >= x && pX <= x + w &&
