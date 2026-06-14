@@ -59,9 +59,9 @@ Screens.calculator = {
             this.elements.push(new Button(RIGHT_X, BOTTOM_Y, BUTTON_SIZE, BUTTON_SIZE, "P2-", 1, ()=> {match.score.team2 -= 1}));
 
             // Switch player number button
-            const TOP_RIGHT_X_POS = 0.9;
+            const TOP_RIGHT_X_POS = 0.85;
             const TOP_RIGHT_Y_POS = 0.1;
-            this.elements.push(new Button(TOP_RIGHT_X_POS, TOP_RIGHT_Y_POS, BUTTON_SIZE, BUTTON_SIZE, "Switch", 1, ()=> {
+            this.elements.push(new Button(TOP_RIGHT_X_POS, TOP_RIGHT_Y_POS, BUTTON_SIZE * 1.5, BUTTON_SIZE, `Switch to ${match.rules.numberOfPlayers === 2? 4 : 2} player`, 1, ()=> {
                 match.rules.numberOfPlayers = match.rules.numberOfPlayers === 4? 2 : 4;
                 Screens.set("calculator");
             }));
